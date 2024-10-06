@@ -61,15 +61,15 @@ const getStudentByID = async(req,res) => {
 //create student
 const createStudent = async(req,res) => {
     try{
-       const {Sect, Dept, Phn_no, Email} = req.body;
-        if(!Sect || !Dept || !Phn_no || !Email){
+       const {Id, Sect, Dept, Phn_no, Email} = req.body;
+        if(!Id || !Sect || !Dept || !Phn_no || !Email){
             return res.status(500).send({
                 success: false,
                 message: 'Please Provide all fields'
             })
         }
-        const data = await db.query('INSERT INTO students (Sect, Dept, Phn_no, Email) VALUES (?, ?, ?, ?)',
-              [Sect, Dept, Phn_no, Email]
+        const data = await db.query('INSERT INTO students (Id, Sect, Dept, Phn_no, Email) VALUES (?, ?, ?, ?, ?)',
+              [Id, Sect, Dept, Phn_no, Email]
             );
         if(!data){
             return res.status(404).send({
@@ -101,8 +101,8 @@ const updateStudent = async(req,res) => {
                 message:'Invalid ID or provide id'
             })
         }
-        const {Sect, Dept, Phn_no, Email} = req.body
-        const data = await db.query(`UPDATE students SET Sect = ?, Dept = ?, Phn_no = ?, Email = ? WHERE Id = ?`,[Sect,Dept, Phn_no, Email, studentId ])
+        const {Id, Sect, Dept, Phn_no, Email} = req.body
+        const data = await db.query(`UPDATE students SET Id = ?, Sect = ?, Dept = ?, Phn_no = ?, Email = ? WHERE Id = ?`,[Id,Sect,Dept, Phn_no, Email, studentId ])
         if(!data){
             return res.status(401).send({
                 success: false,
