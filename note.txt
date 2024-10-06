@@ -48,5 +48,16 @@ PORT = 8080
 
 #now create schema in mysql
 #create table using gui
+# we could also use global error handler, installing beta version moving to express 5
+#express-async-errors
+#npm i express-async-errors
+Then import the file
+#require('express-async-errors)
+Implementation of Global Error Handler
+----------
+app.use((err,req,res,next) => {
+  console.log(err)
+  res.status(err.status|| 500).send('Something went wrong!)
+})
 
 
