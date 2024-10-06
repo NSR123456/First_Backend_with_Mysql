@@ -137,14 +137,7 @@ const deleteStudent = async (req, res) => {
             });
         }
 
-        // Query the database to check if the student exists
-        const checkStudent = await db.query(`SELECT * FROM students WHERE id = ?`, [studentId]);
-        if (checkStudent[0].length === 0) {
-            return res.status(404).send({
-                success: false,
-                message: 'No student found with this ID'
-            });
-        }
+        
 
         // Proceed to delete the student
         const result = await db.query(`DELETE FROM students WHERE id = ?`, [studentId]);
