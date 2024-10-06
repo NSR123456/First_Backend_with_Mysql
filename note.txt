@@ -1,0 +1,52 @@
+# WebDev
+#Node Express Server Setup------
+const express = require("express"); //we needed to store dependencies in variable
+//const colors = require("colors");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+
+//configure dotenv
+dotenv.config(path if needed);
+
+//rest object
+const app = express();
+//middlewares
+app.use(express.json());
+app.use(morgan("dev"));
+
+//routes
+app.get("/test",(req,res) => {
+  res.status(200).send("<h1>Nodejs Mysql App<h1>");
+});
+
+//port
+const PORT = process.env.PORT || 8000;
+
+//listen
+app.listen(PORT, () => {
+  console.log("Server Running");
+});
+
+#Terminal----------
+node server.js
+Server Running
+http://localhost:8080/test
+
+#For automatic change Detection----We will use nodemon
+after stopping server[ ctrl+c]
+npm i nodemon //npm install -g nodemon 
+#Go to package.json , in scripts, "server":"nodemon server.js"
+npm run server
+#package : npm i colors
+
+#morgan
+api req lock
+npm i morgan //middleware
+dotevm //another package, for securing confidential data
+.emv -----
+PORT = 8080
+
+#now create schema in mysql
+#create table using gui
+
+
